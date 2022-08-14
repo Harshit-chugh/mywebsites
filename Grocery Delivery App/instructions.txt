@@ -1,0 +1,2 @@
+Run cart.html code on VS Code(live server) 
+Use the project url provided in form
