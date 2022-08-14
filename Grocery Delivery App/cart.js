@@ -1,4 +1,4 @@
-//define the prices for each item
+
 var price = {
   egg: 2.00,
   muffin: 1.75,
@@ -22,28 +22,24 @@ var price = {
   milkshake: 3.00
 };
 
-// define categories for each item
+
 var drink = ["oj", "water", "soda", "milkshake"];
 var breakfast = ["egg", "muffin", "pancake", "biscuit"];
 var lunch = ["pbj", "bologna", "taco", "soup"];
 var dinner = ["burger", "pizza", "chicken", "salad"];
 var sweet = ["icecream", "flan", "cookie", "cupcake"];
 
-// add each category to an object (used for match individual items to their categories)
+
 var cats = { drink, breakfast, lunch, dinner, sweet };
 
-/* indicies for items added to category divs
- * e.g. if muffin is added after pancake, muffin will have an index of 1
- */
+
 var drinkIdx = 0;
 var breakfastIdx = 0;
 var lunchIdx = 0;
 var dinnerIdx = 0;
 var sweetIdx = 0;
 
-/* sets image attribtes that apply to all images
- * this also saves some clutter in the HTML
- */
+
 function setAttributes() {
   var unassigned = document.getElementsByTagName("img");
   for (i = 0; i < unassigned.length; i++) {
@@ -52,7 +48,7 @@ function setAttributes() {
   }
 } setAttributes();
 
-// returns the price of an item based on the image id
+
 function getPrice(obj) {
   var id = obj.id;
   for (i in price) {
@@ -62,7 +58,8 @@ function getPrice(obj) {
   }
 };
 
-// returns the category of an item based on the image id
+
+
 function getCategory(obj) {
   var id = obj.id;
   for (i in cats) {
@@ -74,7 +71,8 @@ function getCategory(obj) {
   }
 };
 
-// calculates the total price for all items in each category div
+
+
 function calculatePrice() {
   var total = 0;
   for (i in cats) {
@@ -89,7 +87,8 @@ function calculatePrice() {
   totalDiv.innerHTML = "Total: $" + parseTotal;
 }
 
-// clears the output of calculatePrice() and replaced it with a non-breaking space
+
+
 function clearTotal() {
   var div = document.getElementById("total");
   if (div.innerHTML != "") {
@@ -97,7 +96,8 @@ function clearTotal() {
   }
 }
 
-// clears each category div, and resets each category index to 0
+
+
 function clearList() {
   for (i in cats) {
     var div = document.getElementById(i)
@@ -114,7 +114,9 @@ function clearList() {
   clearTotal();
 }
 
-// clears a categories column, resets that index to 0, and clears the total price (if present)
+
+
+
 function clearColumn(obj) {
   var cat = obj.nextElementSibling.id;
   var div = document.getElementById(cat);
@@ -155,12 +157,9 @@ function clearColumn(obj) {
   }
 }
 
-/* clears the contents of a single cell.
- * because the clear button is overlayed on top of the item's image
- * clicking the button results in two calls
- * 1) clearCell(...) which removes the "stack" of images (really it reduces the price attribute)
- * 2) deleteItem(...) which removes the actual image from the column
- */
+
+
+
 function clearCell(obj, category, price) {
   var idx = obj.tabIndex;
   var div = document.getElementById(category);
@@ -172,9 +171,10 @@ function clearCell(obj, category, price) {
   }
 }
 
-// adds an item's image into a category div based on the image's id
+
+
 function addItem(obj) {
-  var idx; //used to idicate what position an item is in a column
+  var idx; 
   var category = getCategory(obj);
   var div = document.getElementById(category);
 
@@ -196,7 +196,8 @@ function addItem(obj) {
       break;
   }
 
-  // determines whether next image input is a copy of a previous image
+  
+  
   var stack = false;
   if (idx > 0) {
     var srcImg = 'url("' + obj.src + '")';
@@ -208,15 +209,9 @@ function addItem(obj) {
     }
   }
 
-  /* if there are no stacks
-   * the image is added to a new div as its background image
-   * using backgroun image allows for text overlay
-   * new div attributes are set, as well as overlay information
-   *
-   * if the image is a stack
-   * first the images index is retrieved
-   * then the overlay information is updated
-   */
+ 
+  
+  
   if (!stack) {
     var newDiv = document.createElement("div");
     newDiv.setAttribute("class", "fix");
@@ -288,14 +283,8 @@ function addItem(obj) {
 };
 
 
-/* detets an item from the column
- * if the item is stacked (i.e. its price attribute is greater than the item price)
- * then the function decrements the price by the item price until the base price remains
- * 
- * if the image is not stacked
- * the function removes the image, decrements the category index,
- * and updates the tabIndex for each image
- */
+
+
 function deleteItem(obj, category, price) {
   var idx = obj.tabIndex;
   var div = document.getElementById(category);
