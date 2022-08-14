@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+<head>
+    <meta charset='UTF-8' />
+    <title>Grocery Delivery App</title>
+    <link rel="stylesheet" type="text/css" href="./cart.css">
+</head>
+
+<body>
+    <header>
+        <h1>Grocery Items Page</h1>
+        <p>Click the items to add them to your cart</p>
+    </header>
+
+    <table id="choices">
+        <tbody>
+            <tr>
+                <td><img src="/images/egg.jpg" alt="Egg" id="egg" /></td>
+                <td><img src="/images/muffin.png" alt="muffin" id="muffin" /></td>
+                <td><img src="/images/pancake.jpg" alt="pancakes" id="pancake" /></td>
+                <td><img src="/images/biscuit.jpg" alt="biscuit" id="biscuit" /></td>
+                <td><img src="/images/oj.png" alt="Orange juice" id="oj" /></td>
+            </tr>
+            <tr>
+                <td><img src="/images/pbj.jpg" alt="Peanut butter and jelly" id="pbj" /></td>
+                <td><img src="/images/bologna.jpg" alt="bologna" id="bologna" /></td>
+                <td><img src="/images/taco.jpg" alt="taco" id="taco" /></td>
+                <td><img src="/images/soup.png" alt="soup" id="soup" /></td>
+                <td><img src="/images/water.jpg" alt="water" id="water" /></td>
+            </tr>
+            <tr>
+                <td><img src="/images/burger.gif" alt="burger" id="burger" /></td>
+                <td><img src="/images/pizza.jpg" alt="pizza" id="pizza" /></td>
+                <td><img src="/images/chicken.jpg" alt="chicken" id="chicken" /></td>
+                <td><img src="/images/salad.png" alt="salad" id="salad" /></td>
+                <td><img src="/images/soda.jpg" alt="soda" id="soda" /></td>
+            </tr>
+            <tr>
+                <td><img src="/images/icecream.jpg" alt="Ice cream" id="icecream" /></td>
+                <td><img src="/images/flan.jpg" alt="flan" id="flan" /></td>
+                <td><img src="/images/cookie.jpg" alt="cookie" id="cookie" /></td>
+                <td><img src="/images/cupcake.jpg" alt="cupcake" id="cupcake" /></td>
+                <td><img src="/images/milkshake.jpg" alt="milkshake" id="milkshake" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="contain">
+        <p>Grocery Cart</p>
+        <p>(click item to remove)</p>
+        <input type="button" value="Clear list" onclick="clearList()" />
+        <input type="button" value="Calculate price" onclick="calculatePrice()" />
+    </div>
+    <div id="total"></div>
+    <table>
+        <tbody>
+            <tr>
+                <td><p>Breakfast items:</p>
+                    <input type="button" value="Clear column" onclick="clearColumn(this)" class="center" />
+                    <div id="breakfast"></div></td>
+                <td><p>Lunch items:</p>
+                    <input type="button" value="Clear column" onclick="clearColumn(this)" class="center" />
+                    <div id="lunch"></div></td>
+                <td><p>Dinner items:</p>
+                    <input type="button" value="Clear column" onclick="clearColumn(this)" class="center" />
+                    <div id="dinner"></div></td>
+                <td><p>Sweets:</p>
+                    <input type="button" value="Clear column" onclick="clearColumn(this)" class="center" />
+                    <div id="sweet"></div></td>
+                <td><p>Drinks:</p>
+                    <input type="button" value="Clear column" onclick="clearColumn(this)" class="center" />
+                    <div id="drink"></div></td>
+            </tr>
+        </tbody>
+    </table>
+<script src="./cart.js" type="text/javascript"></script>
+
+</body>
+</html>
